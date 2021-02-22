@@ -1,0 +1,29 @@
+<app-calendar-item-dialog></app-calendar-item-dialog>
+
+<header>
+    <ul>
+        <li>
+            <button (click)="todayClickHandler()">Today</button>
+        </li>
+        <li>
+            <button class="chevron left" (click)="prevMonthClickHandler()"></button>
+            <button class="chevron right" (click)="nextMonthClickHandler()"></button>
+        </li>
+        <li>
+            <h2>{{currentDate | date :'MMMM yyyy'}}</h2>
+        </li>
+    </ul>
+</header>
+
+<main>
+    <nav>
+        <div *ngFor="let dayOfWeek of daysOfWeek">
+            <a href="#"> {{dayOfWeek}} </a>
+        </div>
+    </nav>
+    <ul>
+        <li *ngFor="let daySchedule of monthlySchedules; trackBy: trackByFunc">
+            <app-calendar-item [schedule]="daySchedule"></app-calendar-item>
+        </li>
+    </ul>
+</main>

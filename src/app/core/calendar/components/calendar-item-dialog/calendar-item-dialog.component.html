@@ -1,0 +1,22 @@
+<ng-container *ngIf="daySchedule$| async as daySchedule">
+    <section>
+      <header>
+        <h2>{{daySchedule.date | date :'MMMM d'}}</h2>
+          <a href="#" class="close" (click)="handleDialogClose()"></a>
+      </header>
+    
+      <div class="meetings-wrapper">
+          <ng-container *ngIf="daySchedule.meetings.length > 0; else noMeetings">
+            <div *ngFor="let meeting of daySchedule.meetings">
+                <strong>{{meeting.start | date : 'HH:mm'}}&nbsp;</strong>
+                <span>{{meeting.name}}</span>
+            </div>
+          </ng-container>
+          <ng-template #noMeetings>
+            <h3>No meetings scheduled for this day!</h3>
+          </ng-template>
+      </div>
+    </section>
+    <div class="overlay"></div>
+</ng-container>
+

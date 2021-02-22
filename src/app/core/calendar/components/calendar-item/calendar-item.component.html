@@ -1,0 +1,13 @@
+<ng-container *ngIf="schedule">
+    <header>
+        <p>{{schedule.date | date :'MMMM d'}}</p>
+    </header>
+    
+    <section>
+        <div *ngFor="let meeting of schedule.meetings">
+            <strong>{{meeting.start | date : 'HH:mm'}}&nbsp;</strong>
+            <span>{{meeting.name}}</span>
+        </div>
+    </section>
+</ng-container>
+

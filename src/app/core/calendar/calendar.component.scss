@@ -1,0 +1,120 @@
+@import "styles/_variables";
+@import "styles/button/_chevron";
+
+:host {
+    height: 100%;
+    width: 100%;
+
+    font-family: $font-family;
+
+    & > header {
+        height: 10%;
+        display: flex;
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            width: 100%;
+
+            li {
+                margin: 10px 20px;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                button {
+                    outline: 1px solid $border-color;
+                    border: none;
+                    background: none;
+                    padding: 10px 20px;
+                    margin-right: 10px;
+
+                    cursor: pointer;
+
+                    &:hover {
+                        outline: none;
+                        background-color: $background-color;
+                        color: $text-color-main;
+                    }
+                }
+
+                h2 {
+                    margin: 0;
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+
+    main {
+        height: 90%;
+
+        nav {
+            display: flex;
+            height: 5%;
+            align-items: center;
+
+            div {
+                display: flex;
+                height: 100%;
+                flex-basis: $schedule-item-width;
+                max-width: $schedule-item-width;
+                outline: 1px solid $border-color;
+                background: $background-color;
+
+                align-items: center;
+                justify-content: center;
+
+                a {
+                    text-decoration: none;
+                    font-weight: bold;
+                    color: $text-color-main;
+                }
+            }
+        }
+
+        ul {
+            height: 95%;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: $schedule-item-width $schedule-item-width $schedule-item-width $schedule-item-width $schedule-item-width $schedule-item-width $schedule-item-width;
+            grid-template-rows: 20% 20% 20% 20% 20%;
+
+            li {
+                display: flex;
+                flex-direction: column;
+
+                outline: 1px solid $border-color;
+            }
+        }
+    }
+
+    @media only screen and (max-width: $media-width-mobile) {
+        & > header {
+            ul {
+                li {
+                    h2 {
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+
+        main {
+            nav {
+                div {
+                    a {
+                        font-size: 0.6rem;
+                    }
+                }
+            }
+        }
+    }
+
+    @include chevron-button;
+}

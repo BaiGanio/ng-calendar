@@ -1,0 +1,65 @@
+@import 'styles/_variables';
+@import 'styles/button/_close';
+
+:host {
+    section {
+        position: absolute;
+        background-color: $text-color-main;
+        width: 40%;
+        max-height: 600px;
+        z-index: 1000;
+        left: calc(50% - (40% / 2));
+        top: 20%;
+        border-radius: 3px;
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 30px;
+            h2 {
+                margin: 0;
+            }
+        }
+
+        .meetings-wrapper {
+            padding: 15px 30px;
+
+            div {
+                display: flex;
+                padding: 5px 10px;
+                background: $background-color;
+                color: $text-color-main;
+                border-radius: 2px;
+                margin: 5px;
+    
+                span {
+                    width: 80%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: inline-block;
+                }
+            }
+        }
+    }
+
+    .overlay {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        background-color: rgba($color: $text-color-secondary, $alpha: 0.4);
+    }
+
+    @media only screen and (max-width: $media-width-mobile) {
+        section {
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            max-height: 100vh;
+        }
+    }
+
+    @include close-button;
+}
